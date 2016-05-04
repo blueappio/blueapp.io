@@ -13,4 +13,4 @@ Go to Organization->(Click your organization name)->My Applications
 
 Note: You can use [Github Pages](https://pages.github.com/) to host your application.
 
-Check the other repos for more examples.
+[Check the other repos for more examples.](https://github.com/blueappio)
