@@ -21,3 +21,24 @@ Go to Organization->(Click your organization name)->My Applications
 Note: You can use [Github Pages](https://pages.github.com/) to host your application.
 
 [Check the other repos for more examples.](https://github.com/blueappio)
+
+### Web Bluetooth API Support:
+
+|API Method/Property/Eevent  | Remarks
+|----------|------------
+| navigator.bluetooth.requestDevice() | Filters are ignored. Filters are applied in BluAapp.
+| device.gatt.connect() | Attempts to connect internally up to three times
+| server.getPrimaryService() |
+| service.uuid |
+| service.getCharacteristic() |
+| characteristic.uuid |
+| characteristic.service |
+| characteristic.properties | Supported: broadcast, read,  writeWithoutResponse, write, notify and indicate
+| characteristic.getDescriptor() |
+| characteristic 'oncharacteristicvaluechanged' event |
+| characteristic.readValue() |
+| characteristic.writeValue() |
+| descriptor.uuid |
+| descriptor.characteristic |
+| descriptor.readValue() |
+| descriptor.writeValue() |
