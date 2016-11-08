@@ -1,6 +1,6 @@
 {
   "name": "blueapp.io",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "homepage": "https://github.com/blueappio/blueapp.io",
   "license": "Copyright 2016 Vensi, Inc.",
   "main": "blueapp.io.min.js",
@@ -25,6 +25,7 @@
    "1.0.0",
    "1.1.0",
    "1.1.1",
-   "1.1.2"
+   "1.1.2",
+   "1.1.3"
  ]
 }
