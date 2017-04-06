@@ -27,8 +27,7 @@ bower install blueapp.io --save
     <tr>
       <td><b>Device Discovery</b></td>
     </tr>
-    <tr>
-      <td>
+    <tr><td>
         <dl>
           <dt>navigator.bluetooth.requestDevice()</dt> 
           <dd>If using on Blueapp platform, filters are ignored.</dd>
@@ -41,51 +40,150 @@ bower install blueapp.io --save
             </ul>
           </dd>
         </dl>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Bluetooth Device</b></td>
-    </tr>
-    <tr>
-      <td>
+    </td></tr>
+    <tr><td><b>Bluetooth Device</b></td></tr>
+    <tr><td>
         <dl>
           <dt>connect()</dt>
           <dd>Attempts to connect internally up to three times</dd>
+          <dd>Returns: the connected device on success</dd>
         </dl>
-      </td>
-    </tr>
-    <tr><td><b>Services</b></td></tr>
-    <tr><td><dl><dt>getPrimaryService()</dt></dl></td></tr>
-    <tr><td><dl><dt>getCharacteristic()</dt></dl></td></tr>
-    <tr><td><b>Characteritics</b></td></tr>
-    <tr><td><dl><dt>getDescriptor()</dt></dl></td></tr>
-    <tr><td><dl><dt>readValue()</dt></dl></td></tr>
-    <tr><td><dl><dt>writeValue()</dt></dl></td></tr>
-    <tr><td><b>Descriptors</b></td></tr>
-    <tr><td><dl><dt>readValue()</dt></dl></td></tr>
-    <tr><td><dl><dt>writeValue()</dt></dl></td></tr>
-    <tr><th>Properties</th></tr>
-    <tr><td><b>Services</b></td></tr>
-    <tr><td><dl><dt>uuid</dt></dl></td></tr>
-    <tr><td><b>Characteritics</b></td></tr>
-    <tr>
-      <td>
-      <dl><dt>
-        properties
-       </dt>
-        <dd>Supported: broadcast, read,  writeWithoutResponse, write, notify and indicate
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>getPrimaryService()</dt>
         <dd>
+          Parameters:
+          <ul>
+            <li>Service UUID we are searching for. Can be 16 bit or 128 bit
+            <dd> ex: "180a"</dd>
+          </ul>
+        </dd>
+        <dd>Returns: Reference to service.</dd>
+      </dl>
+    </td></tr>
+    <tr><td><b>Service</b></td></tr>
+    <tr><td>
+      <dl>
+        <dt>getCharacteristic()</dt>
+        <dd>
+          Parameters:
+          <ul>
+            <li>Characteristic UUID we are searching for. Can be 16 bit or 128 bit
+            <dd> ex: "220a"</dd>
+          </ul>
+        </dd>
+        <dd>Returns: Reference to characteristic.</dd>
+      </dl>
+    </td></tr>
+    <tr><td><b>Characteritic</b></td></tr>
+    <tr><td>
+      <dl>
+        <dt>getDescriptor()</dt>
+        <dd>
+          Parameters:
+          <ul>
+            <li>Descriptor UUID we are searching for. Can be 16 bit or 128 bit
+            <dd> ex: "180a"</dd>
+          </ul>
+        </dd>
+        <dd>Returns: Reference to service.</dd>
+      </dl>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>readValue()</dt>
+        <dd>Returns: Data buffer contain bytes from device.</dd>
+      </dl>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>writeValue()</dt>
+        <dd>
+          Parameters:
+          <ul>
+            <li>Bytes to be written.
+          </ul>
+        </dd>
+      </dl>
+    </td></tr>
+    <tr><td><b>Descriptor</b></td></tr>
+        <tr><td>
+      <dl>
+        <dt>readValue()</dt>
+        <dd>Returns: Data buffer contain bytes from device.</dd>
+      </dl>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>writeValue()</dt>
+        <dd>
+          Parameters:
+          <ul>
+            <li>Bytes to be written.
+          </ul>
+        </dd>
+      </dl>
+    </td></tr>
+    <tr><th>Properties</th></tr>
+    <tr><td><b>Service</b></td></tr>
+    <tr><td>
+      <dl>
+        <dt>uuid</dt>
+        <dd>Identifier of the service.</dd>
+      </dl>
+    </td></tr>
+    <tr><td><b>Characteritic</b></td></tr>
+    <tr><td>
+        <dl>
+          <dt>properties</dt>
+          <dd>Permissions of the characteristic.</dd>
+          <dd>
+            Supported:
+            <ul>
+              <li> broadcast
+              <li> read
+              <li> writeWithoutResponse
+              <li> write
+              <li> notify
+              <li> indicate
+            </ul>
+          </dd>
         </dl>
-      </td>
-    </tr>
-    <tr><td><dl><dt>uuid</dt></dl></td></tr>
-    <tr><td><dl><dt>service</dt></dl></td></tr>
-    <tr><td><b>Descriptors**</b></td></tr>
-    <tr><td><dl><dt>uuid</dt></dl></td></tr>
-    <tr><td><dl><dt>characteristic</dt></dl></td></tr>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>uuid</dt>
+        <dd>Identifier of the characteristic.</dd>
+      </dl>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>service</dt>
+        <dd>Parent service reference.</dd>
+      </dl>
+    </td></tr>
+    <tr><td><b>Descriptor</b></td></tr>
+    <tr><td>
+      <dl>
+        <dt>uuid</dt>
+        <dd>Identifier of the descriptor.</dd>
+      </dl>
+    </td></tr>
+    <tr><td>
+      <dl>
+        <dt>characteristic</dt>
+        <dd>Parent characteristic reference</dd>
+      </dl>
+    </td></tr>
     <tr><th>Events</th><tr>
     <tr><td><b>Characteritics</b></td><tr>
-    <tr><td><dl><dt>oncharacteristicvaluechanged</dt></dl></td><tr>
+    <tr><td>
+      <dl>
+        <dt>oncharacteristicvaluechanged</dt>
+        <dd>Add listener for event when trying to get notifications or indications of a characteristic</dd>
+      </dl>
+    </td><tr>
   </tbody>
 </table>
 
