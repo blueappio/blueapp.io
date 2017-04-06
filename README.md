@@ -177,13 +177,13 @@ bower install blueapp.io --save
       </dl>
     </td></tr>
     <tr><th>Events</th><tr>
-    <tr><td><b>Characteritics</b></td><tr>
+    <tr><td><b>Characteritics</b></td></tr>
     <tr><td>
       <dl>
         <dt>oncharacteristicvaluechanged</dt>
         <dd>Add listener for event when trying to get notifications or indications of a characteristic</dd>
       </dl>
-    </td><tr>
+    </td></tr>
   </tbody>
 </table>
 
