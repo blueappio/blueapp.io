@@ -176,7 +176,7 @@ bower install blueapp.io --save
         <dd>Parent characteristic reference</dd>
       </dl>
     </td></tr>
-    <tr><th>Events</th><tr>
+    <tr><th>Events</th></tr>
     <tr><td><b>Characteritics</b></td></tr>
     <tr><td>
       <dl>
