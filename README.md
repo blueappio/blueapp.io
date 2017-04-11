@@ -46,7 +46,7 @@ bower install blueapp.io --save
         <dl>
           <dt>connect()</dt>
           <dd>Attempts to connect internally up to three times</dd>
-          <dd>Returns: the connected device on success</dd>
+          <dd>Returns: A promise with the conncted device.</dd>
         </dl>
     </td></tr>
     <tr><td>
@@ -59,7 +59,7 @@ bower install blueapp.io --save
             <dd> ex: "180a"</dd>
           </ul>
         </dd>
-        <dd>Returns: Reference to service.</dd>
+        <dd>Returns: A promise with the service.</dd>
       </dl>
     </td></tr>
     <tr><td><b>Service</b></td></tr>
@@ -73,7 +73,7 @@ bower install blueapp.io --save
             <dd> ex: "220a"</dd>
           </ul>
         </dd>
-        <dd>Returns: Reference to characteristic.</dd>
+        <dd>Returns: A promise with the characteristic.</dd>
       </dl>
     </td></tr>
     <tr><td><b>Characteritic</b></td></tr>
@@ -87,13 +87,13 @@ bower install blueapp.io --save
             <dd> ex: "180a"</dd>
           </ul>
         </dd>
-        <dd>Returns: Reference to service.</dd>
+        <dd>Returns: A promise with the descriptor.</dd>
       </dl>
     </td></tr>
     <tr><td>
       <dl>
         <dt>readValue()</dt>
-        <dd>Returns: Data buffer contain bytes from device.</dd>
+        <dd>Returns: A promise with a DataView containing the data.</dd>
       </dl>
     </td></tr>
     <tr><td>
@@ -102,7 +102,7 @@ bower install blueapp.io --save
         <dd>
           Parameters:
           <ul>
-            <li>Bytes to be written.
+            <li>Bytes to be written Uint8Array.
           </ul>
         </dd>
       </dl>
@@ -111,7 +111,7 @@ bower install blueapp.io --save
         <tr><td>
       <dl>
         <dt>readValue()</dt>
-        <dd>Returns: Data buffer contain bytes from device.</dd>
+        <dd>Returns: A promise with a DataView containing the data.</dd>
       </dl>
     </td></tr>
     <tr><td>
@@ -120,7 +120,7 @@ bower install blueapp.io --save
         <dd>
           Parameters:
           <ul>
-            <li>Bytes to be written.
+            <li>Bytes to be written in Uint8Array.
           </ul>
         </dd>
       </dl>
