@@ -1,0 +1,28 @@
+{
+  "name": "blueapp.io-v2",
+  "version": "0.0.1",
+  "authors": [
+    "vensi.com"
+  ],
+  "description": "BlueApp.io-v2 library to connect to remote Bluetooth devices.",
+  "main": "blueapp.io.min.js",
+  "keywords": [
+    "blueapp.io",
+    "blueapp",
+    "vensi",
+    "bluetooth",
+    "gatt-ip",
+    "gattip",
+    "gateway"
+  ],
+  "license": "Copyright 2017 Vensi, Inc.",
+  "homepage": "https://github.com/blueappio/blueapp.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
