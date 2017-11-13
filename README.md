@@ -1,12 +1,12 @@
 # BlueApp.io
 
-Coming from the platform that helps you manage and track dvices, this library enables developers to creat apps for web and mobile using web bluetooth api. You can use this library to create apps for the Blueapp platform or for your personal bluetooth needs.
+Coming from the platform that helps you manage and track devices, this library enables developers to create apps for web and mobile using web bluetooth api. You can use this library to create apps for the Blueapp platform or for your personal bluetooth needs.
 
 ### Installation
 
 There are two ways to integrate the library into your application,
 
-add the following line to your index.thml
+add the following line to your index.html
 
 ```
 <script src="https://blueappio.github.io/blueapp.io/blueapp.io.min.js"></script>
@@ -61,6 +61,17 @@ bower install blueapp.io --save
         </dd>
         <dd>Returns: A promise with the service.</dd>
       </dl>
+            <dl>
+              <dt>getPrimaryServices()</dt>
+              <dd>
+                Parameters:
+                <ul>
+                  <li>Service UUID we are searching for. Can be 16 bit or 128 bit
+                  <dd> ex: "180a"</dd>
+                </ul>
+              </dd>
+              <dd>Returns: A promise with array of services.</dd>
+            </dl>
     </td></tr>
     <tr><td><b>Service</b></td></tr>
     <tr><td>
@@ -75,6 +86,17 @@ bower install blueapp.io --save
         </dd>
         <dd>Returns: A promise with the characteristic.</dd>
       </dl>
+         <dl>
+              <dt>getCharacteristics()</dt>
+              <dd>
+                Parameters:
+                <ul>
+                  <li>Characteristic UUID we are searching for. Can be 16 bit or 128 bit
+                  <dd> ex: "220a"</dd>
+                </ul>
+              </dd>
+              <dd>Returns: A promise with array of characteristics.</dd>
+            </dl>
     </td></tr>
     <tr><td><b>Characteritic</b></td></tr>
     <tr><td>
@@ -89,6 +111,17 @@ bower install blueapp.io --save
         </dd>
         <dd>Returns: A promise with the descriptor.</dd>
       </dl>
+            <dl>
+              <dt>getDescriptors()</dt>
+              <dd>
+                Parameters:
+                <ul>
+                  <li>Descriptor UUID we are searching for. Can be 16 bit or 128 bit
+                  <dd> ex: "180a"</dd>
+                </ul>
+              </dd>
+              <dd>Returns: A promise with array of descriptors.</dd>
+            </dl>
     </td></tr>
     <tr><td>
       <dl>
