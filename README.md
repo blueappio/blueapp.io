@@ -4,221 +4,98 @@ Coming from the platform that helps you manage and track devices, this library e
 
 ### Installation
 
-There are two ways to integrate the library into your application,
+There are three ways to integrate the library into your application.
 
-add the following line to your index.html
+Add the following line to your index.html
 
 ```
 <script src="https://blueappio.github.io/blueapp.io/blueapp.io.min.js"></script>
 ```
 
-or, install via bower
+Install via bower:
 
 ```
 bower install blueapp.io --save
 ```
 
+Install via npm:
+
+```
+npm install blueapp.io --save
+```
+Blueapp.io Web Bluetooth API is based on [Web Bluetooth Specifications](https://www.w3.org/community/web-bluetooth/), and it is supporting most of the features described here. You can check current [implementation status]().
+
 ### Web Bluetooth API Supported:
-<table>
-  <tbody>
-    <tr>
-      <th>Functions</th>
-    </tr>
-    <tr>
-      <td><b>Device Discovery</b></td>
-    </tr>
-    <tr><td>
-        <dl>
-          <dt>navigator.bluetooth.requestDevice()</dt> 
-          <dd>If using on Blueapp platform, filters are ignored.</dd>
-          <dd> If using library outside of blueapp, use the following supported filters:
-            <br>
-            <ul>
-              <li>'name': which will look for a device(s) that matches the name given.
-              <li>'service': which can be an array of 16 bit or 128 bit uuids. These uuids represent services uuids that are advertised by the bluetooth device.
-              <li>'namePrefix': which will look for a device(s) who's name matches the prefix given.
-            </ul>
-          </dd>
-        </dl>
-    </td></tr>
-    <tr><td><b>Bluetooth Device</b></td></tr>
-    <tr><td>
-        <dl>
-          <dt>connect()</dt>
-          <dd>Attempts to connect internally up to three times</dd>
-          <dd>Returns: A promise with the conncted device.</dd>
-        </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>getPrimaryService()</dt>
-        <dd>
-          Parameters:
-          <ul>
-            <li>Service UUID we are searching for. Can be 16 bit or 128 bit
-            <dd> ex: "180a"</dd>
-          </ul>
-        </dd>
-        <dd>Returns: A promise with the service.</dd>
-      </dl>
-            <dl>
-              <dt>getPrimaryServices()</dt>
-              <dd>
-                Parameters:
-                <ul>
-                  <li>Service UUID we are searching for. Can be 16 bit or 128 bit
-                  <dd> ex: "180a"</dd>
-                </ul>
-              </dd>
-              <dd>Returns: A promise with array of services.</dd>
-            </dl>
-    </td></tr>
-    <tr><td><b>Service</b></td></tr>
-    <tr><td>
-      <dl>
-        <dt>getCharacteristic()</dt>
-        <dd>
-          Parameters:
-          <ul>
-            <li>Characteristic UUID we are searching for. Can be 16 bit or 128 bit
-            <dd> ex: "220a"</dd>
-          </ul>
-        </dd>
-        <dd>Returns: A promise with the characteristic.</dd>
-      </dl>
-         <dl>
-              <dt>getCharacteristics()</dt>
-              <dd>
-                Parameters:
-                <ul>
-                  <li>Characteristic UUID we are searching for. Can be 16 bit or 128 bit
-                  <dd> ex: "220a"</dd>
-                </ul>
-              </dd>
-              <dd>Returns: A promise with array of characteristics.</dd>
-            </dl>
-    </td></tr>
-    <tr><td><b>Characteritic</b></td></tr>
-    <tr><td>
-      <dl>
-        <dt>getDescriptor()</dt>
-        <dd>
-          Parameters:
-          <ul>
-            <li>Descriptor UUID we are searching for. Can be 16 bit or 128 bit
-            <dd> ex: "180a"</dd>
-          </ul>
-        </dd>
-        <dd>Returns: A promise with the descriptor.</dd>
-      </dl>
-            <dl>
-              <dt>getDescriptors()</dt>
-              <dd>
-                Parameters:
-                <ul>
-                  <li>Descriptor UUID we are searching for. Can be 16 bit or 128 bit
-                  <dd> ex: "180a"</dd>
-                </ul>
-              </dd>
-              <dd>Returns: A promise with array of descriptors.</dd>
-            </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>readValue()</dt>
-        <dd>Returns: A promise with a DataView containing the data.</dd>
-      </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>writeValue()</dt>
-        <dd>
-          Parameters:
-          <ul>
-            <li>Bytes to be written Uint8Array.
-          </ul>
-        </dd>
-      </dl>
-    </td></tr>
-    <tr><td><b>Descriptor</b></td></tr>
-        <tr><td>
-      <dl>
-        <dt>readValue()</dt>
-        <dd>Returns: A promise with a DataView containing the data.</dd>
-      </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>writeValue()</dt>
-        <dd>
-          Parameters:
-          <ul>
-            <li>Bytes to be written in Uint8Array.
-          </ul>
-        </dd>
-      </dl>
-    </td></tr>
-    <tr><th>Properties</th></tr>
-    <tr><td><b>Service</b></td></tr>
-    <tr><td>
-      <dl>
-        <dt>uuid</dt>
-        <dd>Identifier of the service.</dd>
-      </dl>
-    </td></tr>
-    <tr><td><b>Characteritic</b></td></tr>
-    <tr><td>
-        <dl>
-          <dt>properties</dt>
-          <dd>Permissions of the characteristic.</dd>
-          <dd>
-            Supported:
-            <ul>
-              <li> broadcast
-              <li> read
-              <li> writeWithoutResponse
-              <li> write
-              <li> notify
-              <li> indicate
-            </ul>
-          </dd>
-        </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>uuid</dt>
-        <dd>Identifier of the characteristic.</dd>
-      </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>service</dt>
-        <dd>Parent service reference.</dd>
-      </dl>
-    </td></tr>
-    <tr><td><b>Descriptor</b></td></tr>
-    <tr><td>
-      <dl>
-        <dt>uuid</dt>
-        <dd>Identifier of the descriptor.</dd>
-      </dl>
-    </td></tr>
-    <tr><td>
-      <dl>
-        <dt>characteristic</dt>
-        <dd>Parent characteristic reference</dd>
-      </dl>
-    </td></tr>
-    <tr><th>Events</th></tr>
-    <tr><td><b>Characteritics</b></td></tr>
-    <tr><td>
-      <dl>
-        <dt>oncharacteristicvaluechanged</dt>
-        <dd>Add listener for event when trying to get notifications or indications of a characteristic</dd>
-      </dl>
-    </td></tr>
-  </tbody>
-</table>
+
+#### Device discovery
+Feature                                 |   Supported functions | 
+-----------------------------------     |   :------------: |
+requestDevice()                           |   navigator.bluetooth.requestDevice(options)      |
+Options should be object with either filers passed or acceptAllDevices set to true. In addition we can pass optionalServices - array of services we want to be available from the device (beside services in matched filter).
+Supported filters:
+ * name
+ * namePrefix
+ * services
+ * manufacturerData
+ * serviceData (basic support)
+
+
+### Scanning
+Feature                                 |   Supported functions | 
+-----------------------------------     |   :------------: |
+|  requestLEScan() |   navigator.bluetooth.requestLEScan(options)      |
+
+Options - object of filter (same as requestDevice), keepRepeatedDevices (keep showing adverisement from same device), acceptAllAdvertisements (either this should be true or filters passed).
+### BluetoothDevice
+Bluetooth device object retured in promise from requestDevice(). Available functions:
+ Supported functions | Description |
+  :------------: |:--------------|
+watchAdvertisement() | listening for advertisement of devices found |
+unwatchAdvertisement() | stops listening for advertisement|
+gatt.connect() | connecting to the device from gattServer|
+watchAdvertisement() | listening for advertisement of devices found|
+unwatchAdvertisement() | stops listening for advertisement|
+
+### Server
+Server object returned in promise from gatt.connect(). Available functions:
+ Supported functions | Description |
+  :------------: |:--------------|
+getPrimaryService(uuid) | promise returns passed service from server if available |
+
+### Service
+Service object returned in promise from getPrimaryService(). Abaliable functions:
+ Supported functions | Description |
+  :------------: |:--------------|
+getCharacteristic(uuid) | promise returns passed characteristic from service if available |
+getCharacteristics(uuids) | promise returns array from passed characteristics from service if available |
+
+### Characteristic
+Characteristic object returned in promise from getCharacteristic(). Avaliable functions:
+ Supported functions | Description |
+  :------------: |:--------------|
+getDescriptor(uuid) |  promise returns passed descriptor from characteristic if available |
+getDescriptors(uuids) | promise returns array of passed descriptors from characteristic if available |
+readValue() | promise returns DataView containing the data |
+writeValue() | Bytes to be written Uint8Array |
+startNotifications() | start notifying for value changes | 
+stopNotifications() |  stop notifying for value changes | 
+
+### Descriptor
+Descriptor object returned in promise from getDescriptor(). Available functions:
+ Supported functions | Description |
+  :------------: |:--------------|
+readValue() | promise returns DataView containing the data |
+writeValue() | Bytes to be written Uint8Array |
+
+### Events
+
+ Supported events | fired on |
+  :------------: |:--------------|
+advertisementreceived                 |   BluetoothDevice object     |
+gattserverdisconnected                |   BluetoothDevice object     |
+characteristicvaluechanged            |   Characteristic object      |
+
+For more more details check [getting started]() page.
 
 ### Extra Material
 
