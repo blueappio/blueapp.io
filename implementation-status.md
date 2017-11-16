@@ -10,48 +10,48 @@ getAvailability()                       |   supported      |
 Referring Device (Physical Web)         |   not supported  |
 Discovery                               |   supported      |
 Available filters:                      |                  |
-> services                              |   supported      | 
-> name                                  |   supported      | 
-> namePrefix                            |   supported      |
-> manufacturerData                      |   supported      |
-> serviceData                           |   basic support  |
-> acceptAllDevices                      |   supported      | 
+└ services                              |   supported      | 
+└ name                                  |   supported      | 
+└ namePrefix                            |   supported      |
+└ manufacturerData                      |   supported      |
+└ serviceData                           |   basic support  |
+└ acceptAllDevices                      |   supported      | 
 chooser UI                              |   supported      |
 permissions.request()                   |   not supported  | 
 permissions.query()                     |   not supported  |
 permissions.revoke()                    |   not supported  |
 BluetoothDevice                         |                  | 
-> watchAdvertisements()                 |   supported      | 
-> unwatchAdvertisements()               |   supported      | 
+└ watchAdvertisements()                 |   supported      | 
+└ unwatchAdvertisements()               |   supported      | 
 BluetoothRemoteGATTServer               |                  |
-> connect()                             |   supported      |
-> disconnect()                          |   supported      |
->  getPrimaryService()                  |   supported      |
-> getPrimaryServices()                  |   supported      |
+└ connect()                             |   supported      |
+└ disconnect()                          |   supported      |
+└ getPrimaryService()                  |   supported      |
+└ getPrimaryServices()                  |   supported      |
 BluetoothRemoteGATTService              |                  |
-> getCharacteristic()                   |   supported      |
-> getCharacteristics()                  |   supported      |
-> getIncludedService()                  |   not supported  |
-> getIncludedServices()                 |   not supported  |
+└ getCharacteristic()                   |   supported      |
+└ getCharacteristics()                  |   supported      |
+└ getIncludedService()                  |   not supported  |
+└ getIncludedServices()                 |   not supported  |
 BluetoothRemoteGATTCharacteristic       |                  |
-> getDescriptor()                       |   supported      |
-> getDescriptors()                      |   supported      |
-> readValue()                           |   supported      |
-> writeValue()                          |   supported      |
-> startNotifications()                  |   supported      |
-> stopNotifications()                   |   supported      |
-> characteristic Properties             |   supported      |
+└ getDescriptor()                       |   supported      |
+└ getDescriptors()                      |   supported      |
+└ readValue()                           |   supported      |
+└ writeValue()                          |   supported      |
+└ startNotifications()                  |   supported      |
+└ stopNotifications()                   |   supported      |
+└ characteristic Properties             |   supported      |
 BluetoothRemoteGATTDescriptor           |                  |
-> readValue()                           |   supported      |
-> writeValue()                          |   supported      |
+└ readValue()                           |   supported      |
+└ writeValue()                          |   supported      |
 Events                                  |                  |
-> advertisementreceived                 |   supported      |
-> availabilitychanged                   |   not supported  |
-> characteristicvaluechanged            |   supported      |
-> gattserverdisconnected                |   supported      |
-> serviceadded                          |   not supported  |
-> servicechanged                        |   not supported  |
-> serviceremoved                        |   not supported  |
+└ advertisementreceived                 |   supported      |
+└ availabilitychanged                   |   not supported  |
+└ characteristicvaluechanged            |   supported      |
+└ gattserverdisconnected                |   supported      |
+└ serviceadded                          |   not supported  |
+└ servicechanged                        |   not supported  |
+└ serviceremoved                        |   not supported  |
 BluetoothUUID                           |   supported      | 
 TypeError for bad filters               |   supported      | 
 
@@ -62,14 +62,14 @@ Feature                                 |   Support status |
 --------------------------------------- |   :------------: |
 requestLEScan                           |   supported      |
 Available filters:                      |                  |
-> services                              |   supported      | 
-> name                                  |   supported      | 
-> namePrefix                            |   supported      |
-> manufacturerData                      |   supported      |
-> serviceData                           |   basic support  |
-> keepRepeatedDevices                   |   supported      | 
-> acceptAllAdvertisements               |   supported      | 
+└ services                              |   supported      | 
+└ name                                  |   supported      | 
+└ namePrefix                            |   supported      |
+└ manufacturerData                      |   supported      |
+└ serviceData                           |   basic support  |
+└ keepRepeatedDevices                   |   supported      | 
+└ acceptAllAdvertisements               |   supported      | 
 Events                                  |                  |
-> advertisementreceived                 |   supported      |
+└ advertisementreceived                 |   supported      |
 BluetoothLEScanPermissionDescriptor     |   not supported  |
 BluetoothLEScanPermissionResult         |   not supported  |
