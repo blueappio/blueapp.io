@@ -187,7 +187,7 @@ We can also get characteristic descriptor:
 ```
 
 > **Note:**
-> Beside getDescriptor() we can also use getDescriptors(), where we pass array of descriptors, and in return we get array of descriptorsmatched
+> Beside getDescriptor() we can also use getDescriptors(), where we pass array of descriptors, and in return we get array of descriptors matched
 
 
 getDescriptor() returns promise with found descriptor if it is available.
