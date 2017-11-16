@@ -67,36 +67,39 @@ Server object returned in promise from gatt.connect(). Available functions:
 
 ### Service
 Service object returned in promise from getPrimaryService(). Abaliable functions:
- Supported functions | Description |
-  :------------ |:--------------|
-getCharacteristic(uuid) | promise returns passed characteristic from service if available |
-getCharacteristics(uuids) | promise returns array from passed characteristics from service if available |
+
+| Supported functions | Description |
+| :------------ |:--------------|
+| getCharacteristic(uuid) | promise returns passed characteristic from service if available |
+| getCharacteristics(uuids) | promise returns array from passed characteristics from service if available |
 
 ### Characteristic
 Characteristic object returned in promise from getCharacteristic(). Avaliable functions:
- Supported functions | Description |
-  :------------ |:--------------|
-getDescriptor(uuid) |  promise returns passed descriptor from characteristic if available |
-getDescriptors(uuids) | promise returns array of passed descriptors from characteristic if available |
-readValue() | promise returns DataView containing the data |
-writeValue() | Bytes to be written Uint8Array |
-startNotifications() | start notifying for value changes | 
-stopNotifications() |  stop notifying for value changes | 
+
+| Supported functions | Description |
+| :------------ |:--------------|
+| getDescriptor(uuid) |  promise returns passed descriptor from characteristic if available |
+| getDescriptors(uuids) | promise returns array of passed descriptors from characteristic if available |
+| readValue() | promise returns DataView containing the data |
+| writeValue() | Bytes to be written Uint8Array |
+| startNotifications() | start notifying for value changes | 
+| stopNotifications() |  stop notifying for value changes | 
 
 ### Descriptor
 Descriptor object returned in promise from getDescriptor(). Available functions:
- Supported functions | Description |
-  :------------ |:--------------|
-readValue() | promise returns DataView containing the data |
-writeValue() | Bytes to be written Uint8Array |
+
+| Supported functions | Description |
+| :------------ |:--------------|
+| readValue() | promise returns DataView containing the data |
+| writeValue() | Bytes to be written Uint8Array |
 
 ### Events
 
- Supported events | fired on |
-  :------------ |:--------------|
-advertisementreceived                 |   BluetoothDevice object     |
-gattserverdisconnected                |   BluetoothDevice object     |
-characteristicvaluechanged            |   Characteristic object      |
+| Supported events | fired on |
+| :------------ |:--------------|
+| advertisementreceived                 |   BluetoothDevice object     |
+| gattserverdisconnected                |   BluetoothDevice object     |
+| characteristicvaluechanged            |   Characteristic object      |
 
 For more more details check [getting started]() page.
 
