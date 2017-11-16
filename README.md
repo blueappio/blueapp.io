@@ -28,9 +28,10 @@ Blueapp.io Web Bluetooth API is based on [Web Bluetooth Specifications](https://
 ### Web Bluetooth API Supported:
 
 #### Device discovery
-Feature                                 |   Supported functions | 
------------------------------------     |   :------------: |
-requestDevice()                           |   navigator.bluetooth.requestDevice(options)      |
+|   Feature                                 |   Supported functions | 
+|   :-----------------------------------     |   :------------ |
+|    requestDevice()                           |   navigator.bluetooth.requestDevice(options)      |
+
 Options should be object with either filers passed or acceptAllDevices set to true. In addition we can pass optionalServices - array of services we want to be available from the device (beside services in matched filter).
 Supported filters:
  * name
@@ -41,38 +42,40 @@ Supported filters:
 
 
 ### Scanning
-Feature                                 |   Supported functions | 
------------------------------------     |   :------------: |
+|  Feature                                 |   Supported functions | 
+|  :-----------------------------------     |   :------------ |
 |  requestLEScan() |   navigator.bluetooth.requestLEScan(options)      |
 
 Options - object of filter (same as requestDevice), keepRepeatedDevices (keep showing adverisement from same device), acceptAllAdvertisements (either this should be true or filters passed).
 ### BluetoothDevice
 Bluetooth device object retured in promise from requestDevice(). Available functions:
- Supported functions | Description |
-  :------------: |:--------------|
-watchAdvertisement() | listening for advertisement of devices found |
-unwatchAdvertisement() | stops listening for advertisement|
-gatt.connect() | connecting to the device from gattServer|
-watchAdvertisement() | listening for advertisement of devices found|
-unwatchAdvertisement() | stops listening for advertisement|
+
+|  Supported functions | Description |
+ |  :----------- |:--------------|
+|  watchAdvertisement() | listening for advertisement of devices found  |
+|  unwatchAdvertisement() | stops listening for advertisement  | 
+|  gatt.connect() | connecting to the device from gattServer  |
+|  watchAdvertisement() | listening for advertisement of devices found  |
+|  unwatchAdvertisement() | stops listening for advertisement  |
 
 ### Server
 Server object returned in promise from gatt.connect(). Available functions:
- Supported functions | Description |
-  :------------: |:--------------|
-getPrimaryService(uuid) | promise returns passed service from server if available |
+
+ | Supported functions | Description |
+ | :------------ |:--------------|
+|  getPrimaryService(uuid) | promise returns passed service from server if available |
 
 ### Service
 Service object returned in promise from getPrimaryService(). Abaliable functions:
  Supported functions | Description |
-  :------------: |:--------------|
+  :------------ |:--------------|
 getCharacteristic(uuid) | promise returns passed characteristic from service if available |
 getCharacteristics(uuids) | promise returns array from passed characteristics from service if available |
 
 ### Characteristic
 Characteristic object returned in promise from getCharacteristic(). Avaliable functions:
  Supported functions | Description |
-  :------------: |:--------------|
+  :------------ |:--------------|
 getDescriptor(uuid) |  promise returns passed descriptor from characteristic if available |
 getDescriptors(uuids) | promise returns array of passed descriptors from characteristic if available |
 readValue() | promise returns DataView containing the data |
@@ -83,14 +86,14 @@ stopNotifications() |  stop notifying for value changes |
 ### Descriptor
 Descriptor object returned in promise from getDescriptor(). Available functions:
  Supported functions | Description |
-  :------------: |:--------------|
+  :------------ |:--------------|
 readValue() | promise returns DataView containing the data |
 writeValue() | Bytes to be written Uint8Array |
 
 ### Events
 
  Supported events | fired on |
-  :------------: |:--------------|
+  :------------ |:--------------|
 advertisementreceived                 |   BluetoothDevice object     |
 gattserverdisconnected                |   BluetoothDevice object     |
 characteristicvaluechanged            |   Characteristic object      |
