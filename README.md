@@ -23,7 +23,7 @@ Install via npm:
 ```
 npm install blueapp.io --save
 ```
-Blueapp.io Web Bluetooth API is based on [Web Bluetooth Specifications](https://www.w3.org/community/web-bluetooth/), and it is supporting most of the features described here. You can check current [implementation status]().
+Blueapp.io Web Bluetooth API is based on [Web Bluetooth Specifications](https://www.w3.org/community/web-bluetooth/), and it is supporting most of the features described here. You can check current [implementation status](https://github.com/blueappio/blueapp.io/blob/gh-pages/implementation-status.md).
 
 ### Web Bluetooth API Supported:
 
