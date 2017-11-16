@@ -101,7 +101,7 @@ Descriptor object returned in promise from getDescriptor(). Available functions:
 | gattserverdisconnected                |   BluetoothDevice object     |
 | characteristicvaluechanged            |   Characteristic object      |
 
-For more more details check [getting started]() page.
+For more details check [getting started](https://github.com/blueappio/blueapp.io/blob/gh-pages/getting-started.md) page.
 
 ### Extra Material
 
