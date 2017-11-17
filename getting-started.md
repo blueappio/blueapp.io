@@ -3,9 +3,15 @@
 ## Overview
 Coming from the platform that helps you manage and track devices, this library enables developers to create apps for web and mobile using web bluetooth api. You can use this library to create apps for the Blueapp platform or for your personal bluetooth needs.
 
-##  Getting Started
+## Blueapp.io management
 
-### Installation
+First, in order to create new application for Blueapp platform, we need to login to [Blueapp.io](http://blueapp.io/). Selecting Organizations menu, we can open existing organization or we can create new one. Select organization and click on My Application tab. Clicking on plus sign we can add new application posting url, name and filter. Here you can also manage existing application, change their filter, url or description.
+
+### Creating new application
+
+First thing, before we start to write new javascript application, we have to import our Web Bluetooth blueapp.io library into our new project.
+
+#### Installation
 
 There are three ways to integrate the library into your application.
 
@@ -27,7 +33,6 @@ Install via npm:
 npm install blueapp.io --save
 ```
 
-### Getting started
 
 After adding blueapp.io library into your project, we should have bluetooth object available into navigator. Of course, in order to work with bluetooh devices we must have bluetooth adapter on platform that we are working on.
 
@@ -53,77 +58,49 @@ If we don't pass any of filters we should set acceptAllDevices to true. In that 
 
 
 ```
-navigator.bluetooth.requestDevice({
-  filters: [{
-	name: 'testDevice'
-    services: ['00000000-0001-11e1-9ab4-0002a5d5c51b'],
-  }],
-  optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
-})
+navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
 ```
 requestDevice returns promise with device found if filter matches. 
 
-#### BluetoothDevice
+##### BluetoothDevice
 After getting device object, we have access to devices functions. From this point we can either connect to the device found, or we can just listen for advertisement of that device without connecting to it. Let's connect to the Bluetooth remote GATT Server which holds the service and characteristic definitions.
 
 ```
-navigator.bluetooth.requestDevice({
-  filters: [{
-	name: 'testDevice'
-    services: ['00000000-0001-11e1-9ab4-0002a5d5c51b'],
-  }],
-  optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
-}).then(function (device) {
+.then(function (device) {
 	return device.gatt.connect())
-})
 ```
 device.gatt.connect() returns promise with server found.
+
 We are also able to watch for advertisement from requested device. 
 ```
+...
 device.watchAdvertisements();
 device.addEventListener('advertisementreceived', function (event) {
 	 console.log(event);
 });
 ```
-When we want to stop listening for advertisement we can call unwatchAdvertisement() from that same device.
-#### BluetoothRemoteGATTServer
+
+If we want to stop listening for advertisement we can call unwatchAdvertisement() from that same device.
+
+##### BluetoothRemoteGATTServer
 As a return from connect(), we get GATTServer. From this point, we are able to check for services, and further on, for characteristics from that services.
 ```
-navigator.bluetooth.requestDevice({
-  filters: [{
-	name: 'testDevice'
-    services: ['00000000-0001-11e1-9ab4-0002a5d5c51b'],
-  }],
-  optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
-}).then(function (device) {
-	return device.gatt.connect())
-}).then(function(server) {
-	return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
-})
+.then(function(server) {
+	return server.getPrimaryService('battery_service')
 ```
 
 > **Note:**
 
 > Beside getPrimaryService() we can also use getPrimaryServices(), where we pass array of services, and in return we get array of services matched
+
 server.getPrimaryService() returns promise with found service (if it's available).
 
 
-#### BluetoothRemoteGATTService
+##### BluetoothRemoteGATTService
 Now we have service found from server, and we are able to check for characteristic on that service. 
 ```
-navigator.bluetooth.requestDevice({
-  filters: [{
-	name: 'testDevice'
-    services: ['00000000-0001-11e1-9ab4-0002a5d5c51b'],
-  }],
-  optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
-}).then(function (device) {
-	return device.gatt.connect())
-}).then(function(server) {
-	return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
-}).then(function(service) {
-	return service.getCharacteristic('battery_level');
-})
+.then(function(service) {
+	return service.getCharacteristic('battery_level')
 ```
 > **Note:**
 
@@ -132,38 +109,23 @@ navigator.bluetooth.requestDevice({
 
 getCharacteristic() returns promise with found characteristic, if it's available.
 
-#### BluetoothRemoteGATTCharacteristic
+##### BluetoothRemoteGATTCharacteristic
 Now we are able to get some readouts from bluetooth device, via characteristics. We can use readValue() function in order to read current characteristic value, or writeValue() to write some new value to it. Note that we can also add a characteristicvaluechanged event listener on a characteristic to handle reading its value.
 ```
-navigator.bluetooth.requestDevice({
-  filters: [{
-	name: 'testDevice'
-    services: ['00000000-0001-11e1-9ab4-0002a5d5c51b'],
-  }],
-  optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
-}).then(function (device) {
-	return device.gatt.connect())
-}).then(function(server) {
-	return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
-}).then(function(service) {
-	return service.getCharacteristic('battery_level');
-}).then(function(characteristic) {
-	return characteristic.readValue();
-}).then(value => {
-  console.log('Battery percentage is ' + value.getUint8(0));
-})
+.then(function(characteristic) {
+	// read current characteristic value
+	return characteristic.readValue()
+		.then(function(value) {
+		// parsing value
+		console.log('Battery percentage is ' + value.getUint8(0));
 ```
 
 Listening for value change:
 ```
 ...
-.then(characteristic => {
-  // Set up event listener for when characteristic value changes.
- characteristic.addEventListener('characteristicvaluechanged', handleBatteryLevelChanged;
-  // Reading Battery Level...
-  return characteristic.readValue();
-})
-.catch(error => { console.log(error); });
+.then(function(characteristic) {
+	 // Set up event listener for when characteristic value changes
+	 characteristic.addEventListener('characteristicvaluechanged', handleBatteryLevelChanged;
 
 function handleBatteryLevelChanged(event) {
   let batteryLevel = event.target.value.getUint8(0);
@@ -182,38 +144,110 @@ We can also get characteristic descriptor:
 ```
 ...
 .then(function(characteristic) {
-  return characteristic.getDescriptor(0x2902);
-})
+  return characteristic.getDescriptor(0x2902)
 ```
 
 > **Note:**
-> Beside getDescriptor() we can also use getDescriptors(), where we pass array of descriptors, and in return we get array of descriptors matched
+>  - Beside getDescriptor() we can also use getDescriptors(), where we pass array of descriptors, and in return we get array of descriptors matched
+>  - We can provide name of the descriptor from the list of [standardized Bluetooth GATT descriptors](https://www.bluetooth.com/specifications/gatt/descriptors). 
 
 
 getDescriptor() returns promise with found descriptor if it is available.
 
-#### BluetoothRemoteGATTDescriptor
+##### BluetoothRemoteGATTDescriptor
 
 We can read values from descriptor:
 ```
 ...
 .then(function(characteristic) {
-  return characteristic.getDescriptor(0x2902);
-}).then(function(descriptor) {
-	descriptor.readValue();
-}).then(function(value) {
-	console.log(value);
-})
+  return characteristic.getDescriptor(0x2902)
+	  .then(function(descriptor) {
+			return descriptor.readValue()
+				.then(function(value) {
+					console.log(value);
+				})
 ```
 and write on descriptor...
 ```
 ...
 .then(function(characteristic) {
-  return characteristic.getDescriptor(0x2902);
-}).then(function(descriptor) {
-  let encoder = new TextEncoder('utf-8');
-  let userDescription = encoder.encode('Defines the time between measurements.');
-  return descriptor.writeValue(userDescription);
-})
+  return characteristic.getDescriptor(0x2902)
+	  .then(function(descriptor) {
+		  let encoder = new TextEncoder('utf-8');
+		  let userDescription = encoder.encode('Defines the time between measurements.');
+		  return descriptor.writeValue(userDescription)
 ```
 
+##### Error handling
+At the end of promise chain, as second parameter we can add error handling function, in order to catch possible errors.
+
+```
+...
+     }, function (error) {
+         console.warn('Error found: ' + error);
+     });
+```
+
+#### Final code
+```
+navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] 
+})
+// return promise with device found
+.then(function (device) {
+	// trying to connect from gattServer
+	return device.gatt.connect()
+		// if connected, promise returns gattServer
+		.then(function(server) {
+			// request for gattService (matches with filter)
+			return server.getPrimaryService('battery_service')
+				.then(function(service) {
+					// request for gattCharacteristic
+					return service.getCharacteristic('battery_level')
+						.then(function(characteristic) {
+							// read current characteristic value
+							return characteristic.readValue()
+								.then(function(value) {
+								  // parsing value
+								  console.log('Battery percentage is ' + value.getUint8(0));
+                                 })
+                         })
+                 })
+           })
+      }, function (error) {
+         console.warn('Error found: ' + error);
+ });
+```
+
+ 
+----------
+
+#### requestLEScan()
+
+Besides requestDevice(), with Blueapp Web Bluetooth library we can listen for advertisement of particular device without connecting to it. Just like in requestDevice(), we can pass either filter or acceptAllAdvertisement set to true in options Object inside parameter. In addition, we can add keepRepeatedDevices in same options Object in we want to get advertisement from same device.
+After requesting for scan, we can attach eventListener to check for advertisement of filtered device, and parse readout from it.
+
+> **Note:**
+>  We must either pass filters, or set acceptAllAdvertisement to true. Otherwise we should get typeError.
+
+```
+navigator.bluetooth.requestLEScan({
+  filters: [{manufacturerData: {0x004C: {}}}],
+  options: {
+    keepRepeatedDevices: true
+  }
+}).then(function() {
+  // listening for event for new advertisement
+  navigator.bluetooth.addEventListener('advertisementreceived', function(event) {
+    // parsing readout data
+    let data = event.manufacturerData.get(0x004C);
+    let result = data.getUint16(18, false);
+    console.log(result);
+  });
+})
+``` 
+
+
+----------
+
+
+After we created our new application, and setup our Blueapp account, we have to post our new application on some hosting service. Note that you can use [Github Pages](https://pages.github.com/) to host your application. When we get url of that app, we can fill the form on Add Application page on Blueapp.io. Now we should have our application available in Applications.
