@@ -3,8 +3,8 @@
 
 ## Web Bluetooth features
 
-Feature                                 |   Blueapp| Mac | Linux | Windows | 
------------------------------------     |   :------------ | : --------	| :---------|:---------|
+Feature                                 |   Blueapp | Mac | Linux | Windows | 
+--------------------------------------- |   :-------- | :-----------|:------|:----------|
 requestDevice                           |   ✅ |	 ✅ |	 ✅ |		 ✅ |
 getAvailability()                       |   ❌ |		❌ |	❌ |	❌ |
 Referring Device (Physical Web)         |   ❌ |		❌ |	❌ |		❌ |
@@ -59,6 +59,7 @@ TypeError for invalid filters               |   ✅ | 		✅		|	✅	   |			❌	|
 ----------
 
 ## Web Bluetooth Scanning
+
 
 Feature                                 |   Blueapp | Mac | Linux | Windows | 
 --------------------------------------- |   :-------- | :-----------|:------|:----------|
