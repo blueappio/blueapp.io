@@ -17,8 +17,8 @@ To look at the current feature support, and comparison between different platfor
 
 #### Device discovery
 |   Feature                                 |   Supported functions | 
-|   :-----------------------------------     |   :------------ |
-|    requestDevice()                           |   navigator.bluetooth.requestDevice(options)      |
+|   :-----------------------------------    |   :------------ |
+|    requestDevice()                        |   navigator.bluetooth.requestDevice(options)      |
 
 
 #### Scanning
