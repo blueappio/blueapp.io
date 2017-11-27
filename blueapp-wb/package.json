@@ -1,0 +1,15 @@
+{
+  "name": "blueapp-wb",
+  "author": {
+    "name": "Nik Markovic",
+    "email": "Nik.Markovic@vensi.com"
+  },
+  "version": "1.0.0",
+  "description": "Web Bluetooth GattIP Polyfill",
+  "dependencies": {
+    "gatt-ip-js": "latest",
+    "websocket": "latest",
+    "error-ex": "latest",
+    "promise": "latest"
+  }
+}

@@ -2,18 +2,30 @@
 
 Blueapp.io is fast, easy to use and feature-rich Web Bluetooth library. It is based on Web Bluetooth spec, and enables developers to create apps for web and mobile for discovering, connecting, and listening for advertisement of bluetooth devices. You can use this library to create apps for the Blueapp platform or for your personal bluetooth needs.
 
-To get started, check out [getting started](https://github.com/blueappio/blueapp.io/blob/gh-pages/getting-started.md) page.!
+To get started, check out [instructions](https://github.com/blueappio/blueapp.io/blob/gh-pages/getting-started.md) page.
+
 To look at the current feature support, and comparison between different platforms check [implementation status](https://github.com/blueappio/blueapp.io/blob/gh-pages/implementation-status.md) page.
 
-### Quick start
--------
-* Add source to index.html:  ```<script src="https://blueappio.github.io/blueapp.io/blueapp.io.min.js"></script>```
-* Install via bower:  ```bower install blueapp.io --save```
-* Install via npm: ```npm install blueapp.io --save```
+## Quick start
+
+* Add source to index.html:
+```
+<script src="https://blueappio.github.io/blueapp.io/blueapp.io.min.js"></script>
+```
+
+* Install via bower:
+```
+bower install blueapp.io --save
+```
+
+* Install via npm:
+```
+npm install blueapp.io --save
+```
 
 
-### Quick Overview:
--------
+## Quick Overview:
+
 
 #### Device discovery
 |   Feature                                 |   Supported functions | 
