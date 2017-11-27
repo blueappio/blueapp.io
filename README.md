@@ -28,6 +28,7 @@ npm install blueapp.io --save
 
 
 #### Device discovery
+
 |   Feature                                 |   Supported functions | 
 |   :-----------------------------------    |   :------------ |
 |    requestDevice()                        |   navigator.bluetooth.requestDevice(options)      |
@@ -39,10 +40,13 @@ npm install blueapp.io --save
 |  requestLEScan() |   navigator.bluetooth.requestLEScan(options)      |
 
 #### BluetoothDevice
+
 Bluetooth device object retured in promise from requestDevice(). Available functions:
 
-|  Supported functions | Description |
- |  :----------- |:--------------|
+
+
+ |  Supported functions                    |   Description |
+ |  :-----------------------------------   |   :------------ |
 |  watchAdvertisement() | listening for advertisement of devices found  |
 |  unwatchAdvertisement() | stops listening for advertisement  | 
 |  gatt.connect() | connecting to the device from gattServer  |
